@@ -6,10 +6,14 @@ metadata:
     app: selenium-hub
 spec:
   ports:
+  - protocol: "TCP"
   - port: 4444
     targetPort: 4444
     name: port0
   selector:
     app: selenium-hub
   type: NodePort
+  # type: LoadBalancer
   sessionAffinity: None
+  # externalIPs:
+  #   - 192.168.64.2

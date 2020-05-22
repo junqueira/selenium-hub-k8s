@@ -2,6 +2,15 @@
 
 O Selenium é uma ferramenta de automação de navegador usada principalmente para testar aplicativos da web. No entanto, quando o Selenium é usado em um pipeline de IC para testar aplicativos, geralmente há uma disputa em torno do uso dos recursos do Selenium. Este exemplo mostra como implantar o Selenium no Kubernetes de forma escalável.
 
+
+### registre image in docker-hub
+
+docker build -f Dockerfile -t hello-python:latest .
+
+docker tag hello-python junqueira/hello-python-test
+docker push junqueira/hello-python-test
+
+
 ### Pré-requisitos
 
 Este exemplo supõe que você tenha um cluster Kubernetes em funcionamento e um cliente kubectl configurado corretamente. Consulte os [Guias de introdução] (https://kubernetes.io/docs/getting-started-guides/) para obter detalhes.
