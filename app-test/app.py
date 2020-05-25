@@ -8,15 +8,17 @@ app = Flask(__name__)
 
 def check_browser(browser):
   driver = webdriver.Remote(
-    # command_executor='http://selenium-hub:4444/wd/hub',
+    command_executor='http://selenium-hub:4444/wd/hub',
     # command_executor='http://localhost:4444/wd/hub',
-    command_executor='http://172.27.155.64:31548/wd/hub',
+    # command_executor='http://172.27.155.64:31548/wd/hub',
     desired_capabilities=getattr(DesiredCapabilities, browser)
   )
   driver.get("http://google.com")
   assert "google" in driver.page_source
   driver.quit()
-  print("Browser %s checks out!" % browser)
+  msg = "Browser %s checks out!" % browser
+  print(msg)
+  return msg
 
 
 @app.route("/")
@@ -26,12 +28,12 @@ def hello():
 
 @app.route("/test-chrome")
 def testChrome():
-    check_browser("CHROME")
+    return check_browser("CHROME")
 
   
 @app.route("/test-firefox")
 def testFirefox():
-    check_browser("FIREFOX")
+    return check_browser("FIREFOX")
 
 
 if __name__ == "__main__":
