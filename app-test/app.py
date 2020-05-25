@@ -2,6 +2,8 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from flask import Flask
+app = Flask(__name__)
 
 
 def check_browser(browser):
@@ -17,6 +19,21 @@ def check_browser(browser):
   print("Browser %s checks out!" % browser)
 
 
-# check_browser("FIREFOX")
-check_browser("CHROME")
+@app.route("/")
+def hello():
+    return "Hello from Python!"
+
+
+@app.route("/test-chrome")
+def testChrome():
+    check_browser("CHROME")
+
+  
+@app.route("/test-firefox")
+def testFirefox():
+    check_browser("FIREFOX")
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
 
