@@ -5,17 +5,9 @@ O Selenium é uma ferramenta de automação de navegador usada principalmente pa
 # hello-python
 Very simple hello world python Flask application.
 
-
 ### registre image in docker-hub
 
-docker build -f Dockerfile -t hello-python:latest .
-
-docker tag hello-python junqueira/hello-python-test
-docker push junqueira/hello-python-test
-
-
-kubectl create --filename=deployment.yaml
-
+./start-app-test.sh
 
 ### Pré-requisitos
 
