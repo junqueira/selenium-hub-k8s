@@ -10,7 +10,7 @@ spec:
     protocol: "TCP"
     port: 6000
     targetPort: 5000
-  sessionAffinity: None
+  # sessionAffinity: None
   type: NodePort
   # type: LoadBalancer
   # externalIPs:
