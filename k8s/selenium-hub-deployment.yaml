@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: selenium-hub-order
+  name: selenium-hub-book
   labels:
-    app: selenium-hub-order
+    app: selenium-hub
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: selenium-hub-order
+      app: selenium-hub
   template:
     metadata:
       labels:
-        app: selenium-hub-order
+        app: selenium-hub
     spec:
       containers:
-      - name: selenium-hub-order
+      - name: selenium-hub
         image: selenium/hub:3.141
         ports:
           - containerPort: 4444
@@ -23,11 +23,14 @@ spec:
         #   limits:
         #     memory: "1000Mi"
         #     cpu: ".5"
+        env:
+          - name: GRID_MAX_SESSION
+            value: "10"
         livenessProbe:
           httpGet:
             path: /wd/hub/status
             port: 4444
-          initialDelaySeconds: 5
+          initialDelaySeconds: 1
           timeoutSeconds: 1
         readinessProbe:
           httpGet:

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: selenium-node-chrome
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: selenium-node-chrome
@@ -20,7 +20,8 @@ spec:
           medium: Memory
       containers:
       - name: selenium-node-chrome
-        image: selenium/node-chrome-debug:3.141
+        # image: selenium/node-chrome-debug:3.141
+        image: selenium/node-chrome:3.141
         ports:
           - containerPort: 5555
         volumeMounts:
@@ -28,10 +29,10 @@ spec:
             name: dshm
         env:
           - name: HUB_HOST
-            value: "selenium-hub-invest"
+            value: "selenium-hub"
           - name: HUB_PORT
             value: "4444"
-        resources:
-          limits:
-            memory: "1000Mi"
-            cpu: ".5"
+        # resources:
+        #   limits:
+        #     memory: "1000Mi"
+        #     cpu: ".5"
