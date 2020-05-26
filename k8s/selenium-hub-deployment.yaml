@@ -19,19 +19,19 @@ spec:
         image: selenium/hub:3.141
         ports:
           - containerPort: 4444
-        resources:
-          limits:
-            memory: "1000Mi"
-            cpu: ".5"
+        # resources:
+        #   limits:
+        #     memory: "1000Mi"
+        #     cpu: ".5"
         livenessProbe:
           httpGet:
             path: /wd/hub/status
             port: 4444
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
         readinessProbe:
           httpGet:
             path: /wd/hub/status
             port: 4444
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
