@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: selenium-hub
+  name: selenium-hub-order
   labels:
-    app: selenium-hub
+    app: selenium-hub-order
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: selenium-hub
+      app: selenium-hub-order
   template:
     metadata:
       labels:
-        app: selenium-hub
+        app: selenium-hub-order
     spec:
       containers:
-      - name: selenium-hub
+      - name: selenium-hub-order
         image: selenium/hub:3.141
         ports:
           - containerPort: 4444
