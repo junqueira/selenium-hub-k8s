@@ -30,11 +30,11 @@ spec:
           httpGet:
             path: /wd/hub/status
             port: 4444
-          initialDelaySeconds: 1
-          timeoutSeconds: 1
+          # initialDelaySeconds: 1
+          # timeoutSeconds: 1
         readinessProbe:
           httpGet:
             path: /wd/hub/status
             port: 4444
-          initialDelaySeconds: 5
-          timeoutSeconds: 1
+          # initialDelaySeconds: 5
+          # timeoutSeconds: 1
